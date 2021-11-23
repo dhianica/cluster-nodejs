@@ -59,9 +59,33 @@
       }
     ],
     "consistent-return": "error",
-    "prefer-const": ["error", {"destructuring": "all"}],
-    "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
-    "prefer-promise-reject-errors": ["error", {"allowEmptyReject": true}],
-    "radix": ["error", "as-needed"]
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "all"
+      }
+    ],
+    "arrow-body-style": [
+      "error",
+      "as-needed",
+      {
+        "requireReturnForObjectLiteral": true
+      }
+    ],
+    "prefer-promise-reject-errors": [
+      "error",
+      {
+        "allowEmptyReject": true
+      }
+    ],
+    "radix": [
+      "error",
+      "as-needed"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true
+    }
   }
 }

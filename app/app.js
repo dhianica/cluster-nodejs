@@ -10,19 +10,9 @@ import routes from './routes'
 
 dotenv.config()
 const totalCPUs = cpu.cpus().length
-
-const app = express()
-
-app.use(cors())
-app.use(express.urlencoded({ extended: false, parameterLimit: 10000 }))
-app.use(express.json())
-
-const IP = config.env.ip
-const PORT = config.env.port
+let app
 
 if (cluster.isMaster) {
-  console.log(`Number of CPUs is ${totalCPUs}`)
-  console.log(`Master ${process.pid} is running`)
   // Fork workers.
   for (let i = 0; i < totalCPUs; i++) {
     cluster.fork()
@@ -33,6 +23,15 @@ if (cluster.isMaster) {
     cluster.fork()
   })
 } else {
+
+  app = express()
+
+  app.use(cors())
+  app.use(express.urlencoded({ extended: false, parameterLimit: 10000 }))
+  app.use(express.json())
+
+  const IP = config.env.ip
+  const PORT = config.env.port
   app.listen(PORT, () => {
     console.info(`Application date & time starting----@ ${moment().format('YYYY-MM-DD HH:mm:ss')}`)
     console.info(`API server ip & port running--------@ http://${IP}:${PORT}`)
@@ -48,4 +47,5 @@ if (cluster.isMaster) {
 
   app.use('/api', routes)
 }
+
 export default app
