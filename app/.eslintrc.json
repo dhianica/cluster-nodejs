@@ -1,0 +1,67 @@
+{
+  "env": {
+    "commonjs": false,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-base"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "semi": [
+      "error",
+      "never"
+    ],
+    "no-console": 0,
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "node/no-unpublished-require": 0,
+    "node/no-missing-require": 0,
+    "node/no-unsupported-features": 0,
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+    "import/extensions": [
+      "error",
+      "never",
+      {
+        "ignorePackages": true,
+        "pattern": {
+          "json": "always",
+          "js": "never"
+        }
+      }
+    ],
+    "import/no-useless-path-segments": [
+      "error",
+      {
+        "noUselessIndex": true
+      }
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "consistent-return": "error",
+    "prefer-const": ["error", {"destructuring": "all"}],
+    "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+    "prefer-promise-reject-errors": ["error", {"allowEmptyReject": true}],
+    "radix": ["error", "as-needed"]
+  }
+}
